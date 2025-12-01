@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Beautiful Calculator</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="description" content="A polished calculator with history, memory and scientific mode">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1 class="title">Beautiful Calculator</h1>
+      <div class="controls">
+        <button id="historyToggle" class="history-btn" aria-pressed="false" title="Toggle history">≡</button>
+        <button id="modeToggle" class="mode-btn" title="Toggle scientific mode">Sci</button>
+        <span id="memIndicator" class="mem-indicator" aria-hidden="true"></span>
+        <label class="theme-toggle">
+          <input id="themeSwitch" type="checkbox" aria-label="Toggle dark theme">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <section class="calculator" id="calculator" role="application" aria-label="Calculator">
+      <div class="display" id="display" aria-live="polite">0</div>
+
+      <div class="scientific-panel" id="scientificPanel" aria-hidden="true">
+        <button class="btn small sci" data-fn="sin">sin</button>
+        <button class="btn small sci" data-fn="cos">cos</button>
+        <button class="btn small sci" data-fn="tan">tan</button>
+        <button class="btn small sci" data-fn="^">^</button>
+        <button class="btn small sci" data-fn="sqrt">√</button>
+        <button class="btn small sci" data-fn="ln">ln</button>
+        <button class="btn small sci" data-fn="log">log</button>
+        <button class="btn small sci" data-fn="exp">exp</button>
+      </div>
+
+      <div class="buttons" role="group" aria-label="Calculator buttons">
+        <!-- Memory row -->
+        <button class="btn mem" data-action="mem-add">M+</button>
+        <button class="btn mem" data-action="mem-sub">M-</button>
+        <button class="btn mem" data-action="mem-recall">MR</button>
+        <button class="btn mem" data-action="mem-clear">MC</button>
+
+        <button class="btn action" data-action="clear">AC</button>
+        <button class="btn action" data-action="back">⌫</button>
+        <button class="btn action" data-action="percent">%</button>
+        <button class="btn op" data-value="/">÷</button>
+
+        <button class="btn" data-value="7">7</button>
+        <button class="btn" data-value="8">8</button>
+        <button class="btn" data-value="9">9</button>
+        <button class="btn op" data-value="*">×</button>
+
+        <button class="btn" data-value="4">4</button>
+        <button class="btn" data-value="5">5</button>
+        <button class="btn" data-value="6">6</button>
+        <button class="btn op" data-value="-">−</button>
+
+        <button class="btn" data-value="1">1</button>
+        <button class="btn" data-value="2">2</button>
+        <button class="btn" data-value="3">3</button>
+        <button class="btn op" data-value="+">+</button>
+
+        <button class="btn wide" data-value="0">0</button>
+        <button class="btn" data-value=".">.</button>
+        <button class="btn equals" data-action="equals">=</button>
+      </div>
+    </section>
+
+    <aside id="historyPanel" class="history-panel" aria-hidden="true">
+      <header class="history-header">
+        <strong>History</strong>
+        <div class="history-controls">
+          <button id="clearHistory" class="btn small">Clear</button>
+          <button id="exportHistory" class="btn small">Export</button>
+          <button id="closeHistory" class="btn small">Close</button>
+        </div>
+      </header>
+      <ul id="historyList" class="history-list" aria-live="polite"></ul>
+    </aside>
+
+    <footer class="app-footer">
+      <small>Keyboard support: numbers, + - * / ^ ( ) . Enter =, Backspace, Escape</small>
+    </footer>
+  </main>
+
+  <script src="lib/parser.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>

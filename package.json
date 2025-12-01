@@ -1,0 +1,14 @@
+{
+  "name": "beautiful-calculator",
+  "version": "1.0.0",
+  "description": "A polished calculator with history, memory and scientific mode",
+  "scripts": {
+    "test": "jest",
+    "test:unit": "jest",
+    "test:e2e": "npx playwright test"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "playwright": "^1.35.0"
+  }
+}
